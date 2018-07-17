@@ -29,7 +29,7 @@ class SKPaginationView: UIView {
     
     convenience init(frame: CGRect, browser: SKPhotoBrowser?) {
         self.init(frame: frame)
-        self.frame = CGRect(x: 0, y: frame.height - margin - extraMargin, width: frame.width, height: 100)
+        self.frame = CGRect(x: 0, y: SKToolbarOptions.displayToolbarAtBottom ? (frame.height - margin - extraMargin) : 0, width: frame.width, height: 100)
         self.browser = browser
 
         setupApperance()
@@ -55,7 +55,7 @@ class SKPaginationView: UIView {
     }
     
     func updateFrame(frame: CGRect) {
-        self.frame = CGRect(x: 0, y: frame.height - margin - extraMargin, width: frame.width, height: 100)
+        self.frame = CGRect(x: 0, y: SKToolbarOptions.displayToolbarAtBottom ? (frame.height - margin - extraMargin) : 0, width: frame.width, height: 100)
     }
     
     func update(_ currentPageIndex: Int) {
